@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const easyProgress = document.querySelector(".easy-progress");
   const mediumProgress = document.querySelector(".medium-progress");
   const hardProgress = document.querySelector(".hard-progress");
-  const easyLabel = document.getElementById(".easy-label");
-  const mediumLabel = document.getElementById(".medium-label");
-  const hardLabel = document.getElementById(".hard-label");
-  const cardStatsContainer = document.getElementById(".stats-card");
+  const easyLabel = document.getElementById("easy-label");
+  const mediumLabel = document.getElementById("medium-label");
+  const hardLabel = document.getElementById("hard-label");
+  const cardStatsContainer = document.getElementById("stats-card");
 
   function validateUser(username) {
     if (username.trim() === "") {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       searchButton.textContent = "Searching...";
       searchButton.disabled = true;
-      const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+      const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
       const url = "https://leetcode.com/graphql/";
       const myHeaders = new Headers();
       myHeaders.append("content-type", "application/json");
@@ -77,8 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateProgress(solved, total, label, circle) {
     const progressDegree = (solved / total) * 100;
-    circle.style.setProperty = ("--porgress-degree", `${progressDegree}`);
-    label.textContent = `${solved}` / `${total}`;
+    circle.style.setProperty("--progress-degree", `${progressDegree}`);
+    label.textContent = `${solved} / ${total}`;
   }
 
   function displayUserData(parsedData) {
